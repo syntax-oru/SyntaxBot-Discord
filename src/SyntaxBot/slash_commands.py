@@ -1,7 +1,6 @@
 import nextcord
 from nextcord.ext import commands
 from colors import *
-from nextcord import Locale
 
 
 class Localization:
