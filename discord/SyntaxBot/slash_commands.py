@@ -165,10 +165,15 @@ _whoami_localization = {
 class SlashCommands(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+        self.__ephemeral = True
+        
+    def ephemeral(self) -> bool:
+        self.__ephemeral = not self.__ephemeral
+        return self.__ephemeral
 
     @nextcord.slash_command(name_localizations=_whoami_localization["name"],
                             description_localizations=_whoami_localization["description"])
     async def whoami(self, interaction: nextcord.Interaction):
         link = "https://syntax.teknat.se/?page_id=690"
         key = interaction.locale in _whoami_localization['answer'].keys() and interaction.locale or "en-US"
-        await interaction.send(f"{_whoami_localization['answer'][key]} {link}", ephemeral=True)
+        await interaction.send(f"{_whoami_localization['answer'][key]} {link}", ephemeral=self.__ephemeral) 

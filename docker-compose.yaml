@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  syntaxbot:
+    container_name: syntaxbot
+    image: syntaxoru/syntaxbot:0.0.1-alpha
+    environment:
+      - TOKEN= # get your token at https://discord.com/developers/applications/<app_id>/bot
+    restart: unless-stopped
