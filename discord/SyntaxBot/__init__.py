@@ -1,16 +1,18 @@
 from nextcord.ext import commands
 from nextcord import Interaction, Permissions
-from .slash_commands import SlashCommands
+from .Cogs.SlashCommands.whoami import WhoAmI
+from .Cogs.SlashCommands.bli_medlem import BliMedlem
 from .event_listeners import Ready
 from colors import cformat, CColors
-import asyncio
 
+TEST = 958457225096085534
 
-guild_ids = [958457225096085534]
+guild_ids = [TEST]
 
 bot = commands.Bot()
-slash = SlashCommands(bot)
+slash = WhoAmI(bot)
 bot.add_cog(slash)
+bot.add_cog(BliMedlem(bot))
 bot.add_cog(Ready(bot))
 bot.add_all_cog_commands()
 

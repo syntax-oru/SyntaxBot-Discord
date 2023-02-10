@@ -162,7 +162,7 @@ _whoami_localization = {
 }
 
 
-class SlashCommands(commands.Cog):
+class WhoAmI(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.__ephemeral = True
